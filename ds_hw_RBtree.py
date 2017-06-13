@@ -1,8 +1,5 @@
-# 2013120311 이우진
+
 import os
-
-
-
 class Node:
 
     def __init__(self, newval): 
@@ -244,7 +241,7 @@ class rb_tree:
 
 
 
-# input.txt read
+
 f = open("test02.txt", 'r')
 lines = f.readlines()
 
@@ -253,8 +250,6 @@ cannot_del = [ ]
 deleted = [ ]
 inserted = [ ]
 
-# >0 일때는 바로 insert, <0 일때는 확인후 있으면 delete, 
-# 0이면 inorder traversal후 저장된 결과 length 프린트
 for i in range(0,len(lines)):
 	x = int(lines[i])
 	if x > 0:
@@ -268,7 +263,6 @@ for i in range(0,len(lines)):
 			tree_.rb_delete(searched)
 			deleted.append(searched)
 	else:
-		# print input filename
 		filenames = os.listdir()
 		for filename in filenames:
 			if filename == f.name:
@@ -277,7 +271,6 @@ for i in range(0,len(lines)):
 		tree_.inorder(tree_.root)
 		total = tree_.inorder_result
 		
-		# None 제거
 		total_withoutleaf = [ ]
 		for i in total:
 		 	if i[0] is not None:
@@ -287,7 +280,6 @@ for i in range(0,len(lines)):
 
 		blacknodes = tree_.blacknode
 
-		# None 제거
 		blacknodes_withoutleaf = [ ]
 		for i in blacknodes:
 			if i is not None:
@@ -300,7 +292,6 @@ for i in range(0,len(lines)):
 		print("nb = %d" %len(blacknodes_withoutleaf))
 		print("bh = %d" %tree_.rb_bh())
 
-		# to print '1 R' form
 		total_col = [ ]
 		total_num = [ ]
 
